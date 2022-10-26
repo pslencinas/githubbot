@@ -10,10 +10,10 @@ from app.utils.service_result import handle_result
 router = APIRouter()
 
 
-@router.post("/v1/githubbot/issues")
+@router.post("/v1/cisco/githubbot")
 async def webhook_listener(request: Request):
     
     print('dentro de router.post()')
-    result = GithubbotService.listener(request)
+    result = await GithubbotService.listener(request)
     return handle_result(result)
 
